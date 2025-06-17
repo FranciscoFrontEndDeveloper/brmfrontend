@@ -5,44 +5,11 @@
     >
     <mat-drawer-content class="drawerRight">
       <div class="toolbarContainer">
-        <!-- <mat-toolbar>
-          <button
-            matIconButton
-            class="example-icon"
-            aria-label="Example icon-button with menu icon"
-            (click)="drawer.toggle()"
-          >
-            <mat-icon>menu</mat-icon>
-          </button>
-          <span>My App</span>
-          <span class="example-spacer"></span>
-          <button
-            matIconButton
-            class="example-icon favorite-icon"
-            aria-label="Example icon-button with heart icon"
-          >
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <button
-            matIconButton
-            class="example-icon"
-            aria-label="Example icon-button with share icon"
-          >
-            <mat-icon>share</mat-icon>
-          </button>
-        </mat-toolbar> -->
         <app-toolbar (menuToogle)="drawer.toggle()"></app-toolbar>
       </div>
       <div *ngFor="let nameApi of arrayNamesApi" class="nameApiContainer">
         <div class="nameApiCard">
-          <mat-card class="example-card" appearance="outlined">
-            <h1>{{ nameApi }}</h1>
-            <!-- <img
-              mat-card-image
-              src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
-              alt="Photo of a Shiba Inu"
-            /> -->
-          </mat-card>
+					<app-nameapidcard></app-nameapidcard>
         </div>
       </div>
     </mat-drawer-content>

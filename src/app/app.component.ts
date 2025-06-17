@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
+import { NameapidcardComponent } from "./components/nameapidcard/nameapidcard.component";
 @Component({
   selector: 'app-root',
   imports: [
@@ -17,7 +18,8 @@ import { ToolbarComponent } from "./components/toolbar/toolbar.component";
     CommonModule,
     MatToolbarModule,
     MatCardModule,
-    ToolbarComponent
+    ToolbarComponent,
+    NameapidcardComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',
