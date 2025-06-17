@@ -5,7 +5,7 @@
     >
     <mat-drawer-content class="drawerRight">
       <div class="toolbarContainer">
-        <mat-toolbar>
+        <!-- <mat-toolbar>
           <button
             matIconButton
             class="example-icon"
@@ -30,7 +30,20 @@
           >
             <mat-icon>share</mat-icon>
           </button>
-        </mat-toolbar>
+        </mat-toolbar> -->
+        <app-toolbar (menuToogle)="drawer.toggle()"></app-toolbar>
+      </div>
+      <div *ngFor="let nameApi of arrayNamesApi" class="nameApiContainer">
+        <div class="nameApiCard">
+          <mat-card class="example-card" appearance="outlined">
+            <h1>{{ nameApi }}</h1>
+            <!-- <img
+              mat-card-image
+              src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+              alt="Photo of a Shiba Inu"
+            /> -->
+          </mat-card>
+        </div>
       </div>
     </mat-drawer-content>
   </mat-drawer-container>
