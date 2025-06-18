@@ -9,10 +9,17 @@
 .drawerRight
 	min-height: 100vh
 
-
 .nameApiContainer
 	display: grid
-	grid-template-columns: auto
+	gap: 1rem
+	grid-template-columns: 1fr
 	justify-content: center
-
-
+	width: 100%
+.nameApiGrid
+	display: grid
+	padding: 1rem
+	grid-template-columns: repeat(1fr)
+	@media ( min-width:	600px)
+		grid-template-columns: repeat(2,1fr)
+	@media ( min-width:	1024px)
+		grid-template-columns: repeat(4,1fr)

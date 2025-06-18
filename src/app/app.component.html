@@ -7,11 +7,13 @@
       <div class="toolbarContainer">
         <app-toolbar (menuToogle)="drawer.toggle()"></app-toolbar>
       </div>
-      <div *ngFor="let nameApi of arrayNamesApi" class="nameApiContainer">
+<div class="nameApiGrid">
+	      <div *ngFor="let nameApi of arrayNamesApi" class="nameApiContainer">
         <div class="nameApiCard">
 					<app-nameapidcard></app-nameapidcard>
         </div>
       </div>
+</div>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
