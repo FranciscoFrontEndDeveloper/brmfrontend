@@ -30,7 +30,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   
 export class ApirestinfoComponent {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'details'];
   dataSource = ELEMENT_DATA;
   clickedRows = new Set<PeriodicElement>();
   
