@@ -14,11 +14,15 @@ export const routes: Routes = [
     component: ApidashboardComponent,
     children: [
       {
-        path: 'apiNames',
+        path: '',
         component: NameapidcardComponent,
+      },
+      {
+            path: 'details',
+            component: ApirestinfoComponent,
       },
     ],
   },
 
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

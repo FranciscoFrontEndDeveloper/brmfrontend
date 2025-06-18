@@ -1,11 +1,9 @@
-      <div class="nameApiGrid">
-        <div *ngFor="let nameApi of apiNames()" class="nameApiContainer">
-          <div class="nameApiCard">
-            <div class="example-card">
-  <h1 routerLink="apiRestInfo">{{ nameApi.name }}</h1>
-</div>
-          </div>
-        </div>
+<div class="nameApiGrid">
+  <div *ngFor="let nameApi of apiNames()" class="nameApiContainer">
+    <div class="nameApiCard">
+      <div class="example-card">
+        <h1 [routerLink]="['/dashboard/details']">{{ nameApi.name }}</h1>
       </div>
-
-
+    </div>
+  </div>
+</div>
