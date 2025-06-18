@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,6 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NameapidcardComponent } from './components/nameapidcard/nameapidcard.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ApinamesService } from './services/apinames.service';
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -27,6 +29,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class AppComponent {
   constructor(private breakpointObserver: BreakpointObserver) {}
+  private apiNamesService = inject(ApinamesService);
+  apiNames = this.apiNamesService.apiRestName
   title = 'brmfrontend';
   drawerMode: 'side' | 'over' = 'over';
   drawerOpened: boolean = true;

@@ -1,6 +1,10 @@
 <div class="mainContainer">
   <mat-drawer-container class="example-container">
-    <mat-drawer #drawer [mode]="drawerMode" [opened]="drawerOpened" class="drawerLeft"
+    <mat-drawer
+      #drawer
+      [mode]="drawerMode"
+      [opened]="drawerOpened"
+      class="drawerLeft"
       >Drawer content</mat-drawer
     >
     <mat-drawer-content class="drawerRight">
@@ -8,9 +12,9 @@
         <app-toolbar (menuToogle)="drawer.toggle()"></app-toolbar>
       </div>
       <div class="nameApiGrid">
-        <div *ngFor="let nameApi of arrayNamesApi" class="nameApiContainer">
+        <div *ngFor="let nameApi of apiNames()" class="nameApiContainer">
           <div class="nameApiCard">
-            <app-nameapidcard></app-nameapidcard>
+            <app-nameapidcard [titleApiname]="nameApi.name"></app-nameapidcard>
           </div>
         </div>
       </div>
