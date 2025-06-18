@@ -6,7 +6,7 @@ import {
 import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
-
+import {MatIconModule} from '@angular/material/icon';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -17,7 +17,7 @@ export interface PeriodicElement {
 @Component({
   selector: 'app-apirestinfo',
   standalone: true,
-  imports: [MatTableModule, CommonModule],
+  imports: [MatTableModule, CommonModule, MatIconModule],
   templateUrl: './apirestinfo.component.html',
   styleUrl: './apirestinfo.component.sass',
 })
