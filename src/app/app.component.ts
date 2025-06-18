@@ -5,9 +5,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
-import { ToolbarComponent } from "./components/toolbar/toolbar.component";
-import { NameapidcardComponent } from "./components/nameapidcard/nameapidcard.component";
+import { MatCardModule } from '@angular/material/card';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { NameapidcardComponent } from './components/nameapidcard/nameapidcard.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-root',
   imports: [
@@ -19,12 +20,51 @@ import { NameapidcardComponent } from "./components/nameapidcard/nameapidcard.co
     MatToolbarModule,
     MatCardModule,
     ToolbarComponent,
-    NameapidcardComponent
-],
+    NameapidcardComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',
 })
 export class AppComponent {
+  constructor(private breakpointObserver: BreakpointObserver) {}
   title = 'brmfrontend';
-  public arrayNamesApi = ['nombre 1', 'nombre 2', 'nombre 3','nombre 1', 'nombre 2', 'nombre 3','nombre 1', 'nombre 2', 'nombre 3','nombre 1', 'nombre 2', 'nombre 3','nombre 1', 'nombre 2', 'nombre 3','nombre 1', 'nombre 2', 'nombre 3','nombre 1', 'nombre 2',];
+  drawerMode: 'side' | 'over' = 'over';
+  drawerOpened: boolean = true;
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.breakpointObserver
+      .observe(['(min-width: 1024px)'])
+      .subscribe((result) => {
+        if (result.matches) {
+          this.drawerMode = 'side';
+          this.drawerOpened = true;
+        } else {
+          this.drawerMode = 'over';
+          this.drawerOpened = false;
+        }
+      });
+  }
+  public arrayNamesApi = [
+    'nombre 1',
+    'nombre 2',
+    'nombre 3',
+    'nombre 1',
+    'nombre 2',
+    'nombre 3',
+    'nombre 1',
+    'nombre 2',
+    'nombre 3',
+    'nombre 1',
+    'nombre 2',
+    'nombre 3',
+    'nombre 1',
+    'nombre 2',
+    'nombre 3',
+    'nombre 1',
+    'nombre 2',
+    'nombre 3',
+    'nombre 1',
+    'nombre 2',
+  ];
 }
