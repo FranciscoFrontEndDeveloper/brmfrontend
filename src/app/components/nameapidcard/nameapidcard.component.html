@@ -1,6 +1,11 @@
-<!-- <mat-card class="example-card" appearance="outlined">
-            <h1>nombre api</h1>
-          </mat-card> -->
-<div class="example-card">
-  <h1 routerLink="apiRestInfo">{{ titleApiname }}</h1>
+      <div class="nameApiGrid">
+        <div *ngFor="let nameApi of apiNames()" class="nameApiContainer">
+          <div class="nameApiCard">
+            <div class="example-card">
+  <h1 routerLink="apiRestInfo">{{ nameApi.name }}</h1>
 </div>
+          </div>
+        </div>
+      </div>
+
+
