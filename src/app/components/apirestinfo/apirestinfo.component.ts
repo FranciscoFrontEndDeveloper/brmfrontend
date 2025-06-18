@@ -31,10 +31,13 @@ export class ApirestinfoComponent {
       this.apiInfoGet = data;
       this.dataSource.data = data
       console.log(this.apiInfoGet);
-      this.displayedColumns = Object.keys(data[0]).splice(0,4)
+      this.displayedColumns = Object.keys(data[0]).splice(0, 4)
+      this.displayedColumns.push('details')
       console.log(this.displayedColumns)
     });
+
   }
+  openDetails(element: any){}
 
 
 
