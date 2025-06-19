@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, Observable, of, map } from 'rxjs';
 
 export interface apiInfo {
   id: number;
   name: string;
-  username: string;
+  usersname: string;
   email: string;
   phone: string;
   website: string;
@@ -14,9 +14,16 @@ export interface apiInfo {
   providedIn: 'root',
 })
 export class ApidetailsService {
-  // private apiUrl = 'https://jsonplaceholder.typicode.com/users';
   constructor(private httpClient: HttpClient) {}
   getApiInfo(apiParam: string): Observable<apiInfo[]> {
-    return this.httpClient.get<apiInfo[]>(apiParam);
+    return this.httpClient.get<any>(apiParam).pipe(map(response => {
+      if (response.users && Array.isArray(response.users)) {
+        return response.users;
+      }
+      if (Array.isArray(response)) {
+        return response
+      }
+      return [];
+    }));
   }
 }
