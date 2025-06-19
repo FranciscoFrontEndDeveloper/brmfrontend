@@ -1,59 +1,68 @@
-# Brmfrontend
+# Prueba Técnica – Desarrollador Jr. Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
-## Development server
+Aplicación web desarrollada como parte de una prueba técnica frontend. Su objetivo es mostrar y filtrar un conjunto de dos APIs REST públicas abiertas, permitiendo al usuario consultar una lista organizada y explorar sus detalles de forma sencilla. Desarrollada con Angular y Angular Material.
 
-To start a local development server, run:
+1. Demo en Producción
+🌐 https://brmfrontend-zeta.vercel.app/
+📁 https://github.com/FranciscoFrontEndDeveloper/brmfrontend
+2. Tecnologías Usadas
+Angular 19
+Angular Material
+TypeScript
+SCSS
+Git / GitHub
+Vercel
+3. Estructura del Proyecto
+'Prueba
+Técnica    ├── src/
+	   │ ├── app/
+	   │ │ ├── components/
+	   │ │ │ ├── apiMain/ # Pantalla de inicio de la app
+	   │ │ │ ├── nameapicard/ # Muestra las dos apis que se pueden consultar
+	   │ │ │ ├── toolbar/ # barra de navegacion que aparece cuando se visualiza en telefonos mobiles
+	   │ │ │ ├── apirestinfo/ # Tabla con informacion de la api seleccionada
+	   │ │ │ ├── apidetailsdialog # Componente principal del flujo 
+	   │ │ ├── services/
+	   │ │ │ ├── apinames/ # Servicio Generico que para consumir dos apis
+	   
 
-```bash
+4. Instalación Local
+https://github.com/FranciscoFrontEndDeveloper/brmfrontend.git
+cd brmfrontend
+npm install
 ng serve
-```
+5. Funcionalidades
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+    Dos APIs públicas con información organizada.
 
-## Code scaffolding
+    Filtro por palabra clave o tema.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+    Vista de detalles en un modal de una API individual.
 
-```bash
-ng generate component component-name
-```
+    Manejo de errores simples (fallo en fetch, datos vacíos).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+    Interfaz responsiva y agradable visualmente con Angular Material.
 
-```bash
-ng generate --help
-```
 
-## Building
 
-To build the project run:
+6. Decisiones Técnicas
 
-```bash
-ng build
-```
+    El primer día se hizo un proceso de planificación, conceptualización e implementación, evaluando el alcance viable dentro del plazo de entrega.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    Se optó por Angular Material para acelerar el desarrollo visual por su integración fluida con Angular.
 
-## Running unit tests
+    Se creó un servicio genérico para facilitar la reutilización en futuros componentes.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    Se simulo un servivio que sirvio de base para tomar el nombre y a url de cada api.
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
+8. Mejoras Futuras
 
-For end-to-end (e2e) testing, run:
+    Agregar más APIs públicas a la base.
 
-```bash
-ng e2e
-```
+    Mejorar el filtrado con categorías múltiples o etiquetas.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+    Implementar paginación y carga perezosa.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    Añadir pruebas end-to-end (E2E).
