@@ -10,11 +10,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ApidetailsdialogComponent } from '../apidetailsdialog/apidetailsdialog.component';
 import { ActivatedRoute } from '@angular/router';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { delay, finalize, pipe } from 'rxjs';
 @Component({
   selector: 'app-apirestinfo',
   standalone: true,
-  imports: [MatTableModule, CommonModule, MatIconModule, MatDialogModule],
+  imports: [MatTableModule, CommonModule, MatIconModule, MatDialogModule, MatProgressSpinnerModule],
   templateUrl: './apirestinfo.component.html',
   styleUrl: './apirestinfo.component.sass',
 })
@@ -25,17 +26,25 @@ export class ApirestinfoComponent {
     private route: ActivatedRoute
   ) {}
   apiInfoGet: apiInfo[] = [];
+  loading = true;
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.route.queryParamMap.subscribe((params) => {
+      this.loading = true;
       const url = params.get('apiUrl')!;
-      this.apidetailsService.getApiInfo(url).subscribe((data) => {
-        this.apiInfoGet = data;
-        this.dataSource.data = data;
-        this.displayedColumns = Object.keys(data[0]).splice(0, 4);
-        this.displayedColumns.push('details');
-      });
+      this.apidetailsService
+        .getApiInfo(url)
+        .pipe(
+          delay(1000),
+          finalize(() => this.loading = false)
+        )
+        .subscribe((data) => {
+          this.apiInfoGet = data;
+          this.dataSource.data = data;
+          this.displayedColumns = Object.keys(data[0]).splice(0, 4);
+          this.displayedColumns.push('details');
+        });
     });
   }
   openDetails(element: any): void {

@@ -41,7 +41,7 @@ export class ApidashboardComponent {
     //Add 'implements OnInit' to the class.
     this.breakpointObserver
       .observe(['(min-width: 1024px)'])
-      .pipe(delay(800))
+      .pipe(delay(1000))
       .subscribe((result) => {
         if (result.matches) {
           this.drawerMode = 'side';

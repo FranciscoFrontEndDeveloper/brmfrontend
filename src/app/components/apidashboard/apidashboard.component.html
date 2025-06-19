@@ -1,26 +1,30 @@
 <mat-progress-spinner
   *ngIf="loading"
   mode="indeterminate"
-  class="center-spinner">
+  class="center-spinner"
+>
 </mat-progress-spinner>
 
 <div *ngIf="!loading">
   <!-- aquí va tu <table mat-table> … -->
-    <div class="mainContainer">
-      <mat-drawer-container class="example-container">
-        <mat-drawer
-          #drawer
-          [mode]="drawerMode"
-          [opened]="drawerOpened"
-          class="drawerLeft"
-          >Drawer content</mat-drawer
-        >
-        <mat-drawer-content class="drawerRight">
-          <div class="toolbarContainer">
-            <app-toolbar (menuToogle)="drawer.toggle()"></app-toolbar>
-          </div>
-          <router-outlet></router-outlet>
-        </mat-drawer-content>
-      </mat-drawer-container>
-    </div>
+  <div class="mainContainer">
+    <mat-drawer-container class="example-container">
+      <mat-drawer
+        #drawer
+        [mode]="drawerMode"
+        [opened]="drawerOpened"
+        class="drawerLeft"
+        >Drawer content</mat-drawer
+      >
+      <mat-drawer-content class="drawerRight">
+        <div class="toolbarContainer">
+          <app-toolbar
+            [hiddenMenuMobile]="!drawerOpened"
+            (menuToogle)="drawer.toggle()"
+          ></app-toolbar>
+        </div>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
 </div>

@@ -1,13 +1,17 @@
         <mat-toolbar>
-          <button
+          <ng-container *ngIf="hiddenMenuMobile">
+            <button
             matIconButton
             class="example-icon"
             aria-label="Example icon-button with menu icon"
             (click)="onToggleMenu()"
           >
             <mat-icon>menu</mat-icon>
-          </button>
-          <span>My App</span>
+          </button> 
+          </ng-container>
+          
+
+          <span>Prueba Técnica – Desarrollador Jr. Frontend</span>
           <span class="example-spacer"></span>
           <button
             matIconButton
