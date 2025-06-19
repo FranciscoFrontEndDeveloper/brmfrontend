@@ -9,6 +9,9 @@ import { RouterOutlet } from '@angular/router';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ApinamesService } from '../../services/apinames.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { delay, pipe } from 'rxjs';
+
 @Component({
   selector: 'app-apidashboard',
   imports: [
@@ -20,8 +23,8 @@ import { ApinamesService } from '../../services/apinames.service';
     MatCardModule,
     ToolbarComponent,
     RouterOutlet,
-    // NameapidcardComponent
-],
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './apidashboard.component.html',
   styleUrl: './apidashboard.component.sass',
 })
@@ -32,11 +35,13 @@ export class ApidashboardComponent {
   title = 'brmfrontend';
   drawerMode: 'side' | 'over' = 'over';
   drawerOpened: boolean = true;
+  loading = true;
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.breakpointObserver
       .observe(['(min-width: 1024px)'])
+      .pipe(delay(800))
       .subscribe((result) => {
         if (result.matches) {
           this.drawerMode = 'side';
@@ -45,6 +50,7 @@ export class ApidashboardComponent {
           this.drawerMode = 'over';
           this.drawerOpened = false;
         }
+        this.loading = false;
       });
   }
 }
