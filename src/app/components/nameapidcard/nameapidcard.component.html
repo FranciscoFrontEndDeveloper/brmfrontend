@@ -2,7 +2,12 @@
   <div *ngFor="let nameApi of apiNames()" class="nameApiContainer">
     <div class="nameApiCard">
       <div class="example-card">
-        <h1 [routerLink]="['/dashboard/details']">{{ nameApi.name }}</h1>
+        <h1
+          [routerLink]="['/dashboard/details']"
+          [queryParams]="{ apiUrl: nameApi.apiUrl }"
+        >
+          {{ nameApi.name }}
+        </h1>
       </div>
     </div>
   </div>

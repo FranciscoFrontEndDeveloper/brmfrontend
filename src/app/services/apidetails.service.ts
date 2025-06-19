@@ -14,9 +14,9 @@ export interface apiInfo {
   providedIn: 'root',
 })
 export class ApidetailsService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
+  // private apiUrl = 'https://jsonplaceholder.typicode.com/users';
   constructor(private httpClient: HttpClient) {}
-  getApiInfo(): Observable<apiInfo[]> {
-    return this.httpClient.get<apiInfo[]>(this.apiUrl);
+  getApiInfo(apiParam: string): Observable<apiInfo[]> {
+    return this.httpClient.get<apiInfo[]>(apiParam);
   }
 }
