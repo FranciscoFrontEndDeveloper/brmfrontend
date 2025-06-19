@@ -1,1 +1,37 @@
-<p>apidetailsdialog works!</p>
+<h2 mat-dialog-title>{{ data["name"] }}</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content class="mat-typography">
+ <h3 >{{ data["email"] }}</h3>
+  <div *ngFor="let item of data | keyvalue">
+    <ng-container
+      *ngIf="
+        item.value !== null && (item.value | isobject) === false;
+        else nested
+      "
+    >
+      <p>
+        <strong>{{ item.key }}</strong
+        >{{ item.value }}
+      </p>
+    </ng-container>
+
+    <ng-template #nested>
+      <div class="nested-objet">
+        <p>
+          <strong>{{ item.key }}</strong>
+        </p>
+        <div
+          class="nested-field"
+          *ngFor="let childItem of item.value | keyvalue"
+        >
+          <p>
+            <strong>{{ childItem.key }}: </strong>{{ childItem.value }}
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button matButton mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
