@@ -11,22 +11,10 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ApidetailsdialogComponent } from '../apidetailsdialog/apidetailsdialog.component';
 import { ActivatedRoute } from '@angular/router';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
 @Component({
   selector: 'app-apirestinfo',
   standalone: true,
-  imports: [
-    MatTableModule,
-    CommonModule,
-    MatIconModule,
-    MatDialogModule,
-  ],
+  imports: [MatTableModule, CommonModule, MatIconModule, MatDialogModule],
   templateUrl: './apirestinfo.component.html',
   styleUrl: './apirestinfo.component.sass',
 })
@@ -59,5 +47,5 @@ export class ApirestinfoComponent {
 
   displayedColumns: string[] = [];
   dataSource = new MatTableDataSource<any>();
-  clickedRows = new Set<PeriodicElement>();
+  clickedRows = new Set<apiInfo>();
 }

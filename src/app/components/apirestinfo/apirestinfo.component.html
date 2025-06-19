@@ -1,14 +1,28 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   <!-- Position Column -->
+
   <ng-container *ngFor="let column of displayedColumns">
     <ng-container [matColumnDef]="column">
       <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
       <td mat-cell *matCellDef="let element">
+      <ng-container *ngIf="column === 'image'; else notImage">
+        <img 
+          [src]="element.image" 
+          alt="{{ element.name }}" 
+          class="avatar-cell"
+        />
+      </ng-container>
+
+        <ng-template #notImage>
         <ng-container *ngIf="column !== 'details'; else detailsButton">
           {{ element[column] }}
         </ng-container>
+      </ng-template>
+        
         <ng-template #detailsButton>
-          <button mat-icon-button (click)="openDetails(element)"><mat-icon>info</mat-icon></button>
+          <button mat-icon-button (click)="openDetails(element)">
+            <mat-icon>info</mat-icon>
+          </button>
         </ng-template>
       </td>
     </ng-container>

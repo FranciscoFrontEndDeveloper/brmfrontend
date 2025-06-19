@@ -5,17 +5,7 @@ export const APINAMEREST: { name: string; apiUrl: string }[] = [
  },
   {
   name: 'dummyjson',
-  apiUrl: 'https://dummyjson.com/users'
+  apiUrl: 'https://dummyjson.com/users?limit=10'
  },
-//   {
-//   name: 'jsonplaholder',
-//   apiUrl: 'https://jsonplaceholder.typicode.com/posts'
-//  },
-//    {
-//   name: 'jsonplaholder',
-//   apiUrl: 'https://jsonplaceholder.typicode.com/posts'
-//  }, {
-//   name: 'jsonplaholder',
-//   apiUrl: 'https://jsonplaceholder.typicode.com/posts'
-//  }
+
 ];
