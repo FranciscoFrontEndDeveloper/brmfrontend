@@ -12,10 +12,12 @@ import { ApidetailsdialogComponent } from '../apidetailsdialog/apidetailsdialog.
 import { ActivatedRoute } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { delay, finalize, pipe } from 'rxjs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-apirestinfo',
   standalone: true,
-  imports: [MatTableModule, CommonModule, MatIconModule, MatDialogModule, MatProgressSpinnerModule],
+  imports: [MatTableModule, CommonModule, MatIconModule, MatDialogModule, MatProgressSpinnerModule,MatFormFieldModule, MatInputModule],
   templateUrl: './apirestinfo.component.html',
   styleUrl: './apirestinfo.component.sass',
 })
@@ -53,6 +55,18 @@ export class ApirestinfoComponent {
       data: element,
     });
   }
+
+    applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value
+      .trim()
+      .toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+
+  clearFilter(input: HTMLInputElement) {
+  input.value = '';
+  this.dataSource.filter = '';
+}
 
   displayedColumns: string[] = [];
   dataSource = new MatTableDataSource<any>();

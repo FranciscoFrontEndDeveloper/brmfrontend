@@ -4,6 +4,23 @@
   class="center-spinner">
 </mat-progress-spinner>
 
+<mat-form-field appearance="outline" class="filter-input" *ngIf="!loading">
+  <mat-label>Buscar por nombre</mat-label>
+  <input #searchInput
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="Escribe un nombre..."
+  />
+  <button
+    mat-icon-button
+    matSuffix
+    *ngIf="dataSource.filter"
+    (click)="clearFilter(searchInput)"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
 <div *ngIf="!loading">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
     <!-- Position Column -->
